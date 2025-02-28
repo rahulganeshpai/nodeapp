@@ -1,0 +1,113 @@
+.tree {
+    font-family: var(--ifm-font-family-base);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ifm-font-color-base);
+    margin: 1.5rem;
+  }
+
+  .expandable {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem; /* Adjust padding to align all properties */
+    position: relative;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .nodeHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    color: var(--ifm-color-primary);
+  }
+
+  .nodeHeaderLeft {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem; /* Reduce gap for tighter alignment */
+  }
+
+  .iconWrapper {
+    margin-right: 0.5rem; /* Bring icon closer to key */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nodeDetails {
+    display: flex;
+    gap: 0.8rem; /* Improved spacing for details */
+    align-items: center;
+    margin-left: auto; /* Ensure alignment to the right */
+  }
+
+  .expandButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: var(--ifm-color-primary);
+  }
+
+  .key {
+    font-weight: bold;
+    color: var(--ifm-color-primary);
+  }
+
+  .type {
+    margin-left: auto; /* Align the type badge to the right */
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  .description {
+    border-left: 4px solid var(--ifm-color-gray-300);
+    padding-left: 0.8rem;
+    color: var(--ifm-font-color-base);
+    font-style: italic;
+    margin-top: 0.4rem;
+  }
+
+  .children {
+    margin-top: 0.7rem;
+    padding-left: 1.5rem;
+  } /* Fixed alignment and spacing */
+
+  .controlBar {
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 1.2rem;
+  }
+
+  .controlButton {
+    padding: 0.6rem 1.2rem;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: var(--ifm-color-primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+  }
+
+  .metaTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    font-family: var(--ifm-font-family-base);
+    font-size: 14px;
+    color: var(--ifm-font-color-base);
+  }
+
+  .metaHeader {
+    background-color: var(--ifm-color-primary-light);
+    color: var(--ifm-color-primary-dark);
+    text-align: left;
+    padding: 0.6rem;
+  }
+
+  .metaCell {
+    border: 1px solid var(--ifm-color-gray-300);
+    padding: 0.6rem; /* Balanced padding for compactness */
+    text-align: left;
+  }
