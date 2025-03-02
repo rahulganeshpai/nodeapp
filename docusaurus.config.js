@@ -12,6 +12,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: '<Add CRD Browser Introduction>',
   favicon: 'img/favicon.ico',
+  plugins: ["./plugins/src/index.js"],
 
   // Set the production url of your site here
   url: 'https://your-docusaurus-site.example.com',

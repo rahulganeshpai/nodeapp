@@ -1,0 +1,51 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: CompositeResourceDefinition
+metadata:
+  name: xkeys.kms.aws.signavio.cloud
+spec:
+  group: kms.aws.signavio.cloud
+  names:
+    kind: XKey
+    plural: xkeys
+  claimNames:
+    kind: CKey
+    plural: ckeys
+  versions:
+    - name: v1alpha1
+      served: true
+      referenceable: true
+      schema:
+        openAPIV3Schema:
+          properties:
+            spec:
+              properties:
+                providerConfigRef:
+                  description: Specifies how the provider creates, observes, updates, and deletes resources.
+                  type: object
+                  properties:
+                    aws:
+                      description: Provider name for AWS
+                      type: string
+                resourceConfig:
+                  description: ResourceConfig defines the general properties of this AWS resource.
+                  properties:
+                    tags:
+                      additionalProperties:
+                        type: string
+                      description: Key-value map of resource tags.
+                      type: object
+                  type: object
+              required:
+                - resourceConfig
+              type: object
+            status:
+              description: A Status represents the observed state.
+              properties:
+                KeyArn:
+                  description: KMS Key ARN.
+                  type: string
+                KeyAlias:
+                  description: KMS Key Alias.
+                  type: string
+              type: object
+          type: object
