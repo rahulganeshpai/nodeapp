@@ -111,3 +111,9 @@
     padding: 0.6rem; /* Balanced padding for compactness */
     text-align: left;
   }
+
+  .type {
+    margin-left: auto; /* Align the type badge to the right */
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
+  }

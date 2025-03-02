@@ -18,11 +18,14 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import Box from "@mui/material/Box";
 
 const CustomTreeItem = styled(TreeItem)(({ theme }) => ({
   [`& .${treeItemClasses.content}`]: {
     padding: theme.spacing(0.5, 1),
     margin: theme.spacing(0.2, 0),
+    display: "flex", // Align children horizontally
+    alignItems: "center",
   },
   [`& .${treeItemClasses.iconContainer}`]: {
     "& .close": {
@@ -49,8 +52,7 @@ function EndIcon(props) {
 }
 
 const BorderedTreeView = ({ crdData }) => {
-  console.log(crdData);
-  console.log(examples.generate_kms());
+  console.log(crdData.spec.versions[0].schema.openAPIV3Schema.properties);
   const [isTreeVisible, setIsTreeVisible] = useState(true);
   const [isCardVisible, setIsCardVisible] = useState(false);
   const [isTable, setisTable] = useState(false);
@@ -157,7 +159,6 @@ const BorderedTreeView = ({ crdData }) => {
                   key={row.name}
                   sx={{
                     "&:last-child td, &:last-child th": { border: 0 },
-                    // No border rule for the last row originally
                   }}
                 >
                   <TableCell
@@ -198,18 +199,39 @@ const BorderedTreeView = ({ crdData }) => {
         >
           <CustomTreeItem itemId="1" label="spec">
             <CustomTreeItem itemId="2" label="providerConfigRef">
-              "Hello"
+              <CustomTreeItem itemId="21" label="aws" />
             </CustomTreeItem>
-            <CustomTreeItem itemId="3" label="availabilityZone" />
-            <CustomTreeItem itemId="6" label="subnetType" />
-            <CustomTreeItem itemId="7" label="overrideMetadataName" />
+            <CustomTreeItem
+              itemId="3"
+              label={
+                <Box sx={{ display: "flex", alignItems: "center", gap: 6 }}>
+                  <Typography>resourceConfig</Typography>
+                  <Button
+                    variant="outlined"
+                    size="small"
+                    sx={{
+                      backgroundColor: "green",
+                      color: "white",
+                      padding: "1px 8px", // Adjust padding for a smaller button
+                      fontSize: "0.65rem", // Smaller font size
+                      "&.Mui-disabled": {
+                        backgroundColor: "green",
+                        color: "white",
+                        borderColor: "green",
+                      },
+                    }}
+                  >
+                    Required
+                  </Button>
+                </Box>
+              }
+            >
+              <CustomTreeItem itemId="31" label="tag" />
+            </CustomTreeItem>
           </CustomTreeItem>
           <CustomTreeItem itemId="11" label="status">
-            <CustomTreeItem itemId="12" label="availabilityZone" />
-            <CustomTreeItem itemId="13" label="subnetId" />
-            <CustomTreeItem itemId="14" label="vpcId" />
-            <CustomTreeItem itemId="15" label="subnetType" />
-            <CustomTreeItem itemId="16" label="subnetTags" />
+            <CustomTreeItem itemId="12" label="KeyArn" />
+            <CustomTreeItem itemId="13" label="KeyAlias" />
           </CustomTreeItem>
         </SimpleTreeView>
       )}

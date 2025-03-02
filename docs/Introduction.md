@@ -6,11 +6,10 @@ sidebar_position: 1
 <head>
 <meta name="viewport" content="initial-scale=1, width=device-width" />
 </head>
-# Crossplane CRD Browser
 
-## Introduction
+# Introduction
 
-The Crossplane CRD Browser is an interactive tool designed to simplify the navigation, exploration, and understanding of Custom Resource Definitions (CRDs) in the Crossplane ecosystem. Crossplane extends Kubernetes with cloud-native capabilities by offering CRDs for provisioning cloud infrastructure. This browser aids developers, DevOps engineers, and cloud architects in managing these complex resources more effectively.
+CRD Browser is an interactive tool designed to simplify the navigation, exploration, and understanding of Custom Resource Definitions (CRDs) in the Crossplane ecosystem. Crossplane extends Kubernetes with cloud-native capabilities by offering CRDs for provisioning cloud infrastructure. This browser aids developers, DevOps engineers, and cloud architects in managing these complex resources more effectively.
 
 ## Features
 
