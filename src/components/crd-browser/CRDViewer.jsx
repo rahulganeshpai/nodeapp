@@ -258,11 +258,94 @@ const BorderedTreeView = ({ crdData }) => {
               flexGrow: 1,
             }}
           >
-            <CustomTreeItem itemId="1" label="spec">
-              <CustomTreeItem itemId="2" label="providerConfigRef">
+            <CustomTreeItem
+              itemId="43439"
+              label={
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    width: "100%",
+                  }}
+                >
+                  <Typography>spec</Typography>
+                  <Box sx={{ display: "flex", gap: 1 }}>
+                    <Button
+                      variant="contained"
+                      size="small"
+                      sx={{
+                        padding: "1px 8px",
+                        fontSize: "0.65rem",
+                      }}
+                    >
+                      Object
+                    </Button>
+                  </Box>
+                </Box>
+              }
+            >
+              <CustomTreeItem
+                itemId="43433"
+                label={
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      width: "100%",
+                    }}
+                  >
+                    <Typography>providerConfigRef</Typography>
+                    <Box sx={{ display: "flex", gap: 1 }}>
+                      <Button
+                        variant="contained"
+                        size="small"
+                        sx={{
+                          padding: "1px 8px",
+                          fontSize: "0.65rem",
+                        }}
+                      >
+                        Object
+                      </Button>
+                    </Box>
+                  </Box>
+                }
+              >
                 Specifies how the provider creates, observes, updates, and
                 deletes resources
-                <CustomTreeItem itemId="21" label="aws">
+                <CustomTreeItem
+                  itemId="43436"
+                  label={
+                    <Box
+                      sx={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        width: "100%",
+                      }}
+                    >
+                      <Typography>aws</Typography>
+                      <Box sx={{ display: "flex", gap: 1 }}>
+                        <Button
+                          variant="contained"
+                          size="small"
+                          sx={{
+                            backgroundColor: "#2e7d32", // Light yellow background
+                            color: "white", // Text color, adjust for contrast
+                            padding: "1px 8px",
+                            fontSize: "0.65rem",
+                            "&:hover": {
+                              backgroundColor: "#fffac0", // Slightly darker yellow on hover
+                            },
+                          }}
+                        >
+                          String
+                        </Button>
+                      </Box>
+                    </Box>
+                  }
+                >
                   Provider name for AWS
                 </CustomTreeItem>
               </CustomTreeItem>
@@ -280,35 +363,26 @@ const BorderedTreeView = ({ crdData }) => {
                     <Typography>resourceConfig</Typography>
                     <Box sx={{ display: "flex", gap: 1 }}>
                       <Button
-                        variant="outlined"
+                        variant="contained"
                         size="small"
                         sx={{
-                          backgroundColor: "green",
-                          color: "white",
+                          backgroundColor: "#A9A9A9", // Light yellow background
+                          color: "white", // Text color, adjust for contrast
                           padding: "1px 8px",
                           fontSize: "0.65rem",
-                          "&.Mui-disabled": {
-                            backgroundColor: "green",
-                            color: "white",
-                            borderColor: "green",
+                          "&:hover": {
+                            backgroundColor: "#fffac0", // Slightly darker yellow on hover
                           },
                         }}
                       >
                         Required
                       </Button>
                       <Button
-                        variant="outlined"
+                        variant="contained"
                         size="small"
                         sx={{
-                          backgroundColor: "blue",
-                          color: "white",
                           padding: "1px 8px",
                           fontSize: "0.65rem",
-                          "&.Mui-disabled": {
-                            backgroundColor: "blue",
-                            color: "white",
-                            borderColor: "blue",
-                          },
                         }}
                       >
                         Object
@@ -319,7 +393,33 @@ const BorderedTreeView = ({ crdData }) => {
               >
                 ResourceConfig defines the general properties of this AWS
                 resource.
-                <CustomTreeItem itemId="31" label="tag">
+                <CustomTreeItem
+                  itemId="29292"
+                  label={
+                    <Box
+                      sx={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        width: "100%",
+                      }}
+                    >
+                      <Typography>tag</Typography>
+                      <Box sx={{ display: "flex", gap: 1 }}>
+                        <Button
+                          variant="contained"
+                          size="small"
+                          sx={{
+                            padding: "1px 8px",
+                            fontSize: "0.65rem",
+                          }}
+                        >
+                          Object
+                        </Button>
+                      </Box>
+                    </Box>
+                  }
+                >
                   Key-value map of resource tags.
                 </CustomTreeItem>
               </CustomTreeItem>
@@ -327,12 +427,100 @@ const BorderedTreeView = ({ crdData }) => {
             <br />
             <Divider />
             <br />
-            <CustomTreeItem itemId="11" label="status">
+            <CustomTreeItem
+              itemId="43430"
+              label={
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    width: "100%",
+                  }}
+                >
+                  <Typography>status</Typography>
+                  <Box sx={{ display: "flex", gap: 1 }}>
+                    <Button
+                      variant="contained"
+                      size="small"
+                      sx={{
+                        padding: "1px 8px",
+                        fontSize: "0.65rem",
+                      }}
+                    >
+                      Object
+                    </Button>
+                  </Box>
+                </Box>
+              }
+            >
               A Status represents the observed state.
-              <CustomTreeItem itemId="12" label="KeyArn">
+              <CustomTreeItem
+                itemId="12112"
+                label={
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      width: "100%",
+                    }}
+                  >
+                    <Typography>KeyArn</Typography>
+                    <Box sx={{ display: "flex", gap: 1 }}>
+                      <Button
+                        variant="contained"
+                        size="small"
+                        sx={{
+                          backgroundColor: "#2e7d32", // Light yellow background
+                          color: "white", // Text color, adjust for contrast
+                          padding: "1px 8px",
+                          fontSize: "0.65rem",
+                          "&:hover": {
+                            backgroundColor: "#fffac0", // Slightly darker yellow on hover
+                          },
+                        }}
+                      >
+                        String
+                      </Button>
+                    </Box>
+                  </Box>
+                }
+              >
                 KMS Key ARN.
               </CustomTreeItem>
-              <CustomTreeItem itemId="13" label="KeyAlias">
+              <CustomTreeItem
+                itemId="4343"
+                label={
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      width: "100%",
+                    }}
+                  >
+                    <Typography>KeyAlias</Typography>
+                    <Box sx={{ display: "flex", gap: 1 }}>
+                      <Button
+                        variant="contained"
+                        size="small"
+                        sx={{
+                          backgroundColor: "#2e7d32", // Light yellow background
+                          color: "white", // Text color, adjust for contrast
+                          padding: "1px 8px",
+                          fontSize: "0.65rem",
+                          "&:hover": {
+                            backgroundColor: "#fffac0", // Slightly darker yellow on hover
+                          },
+                        }}
+                      >
+                        String
+                      </Button>
+                    </Box>
+                  </Box>
+                }
+              >
                 KMS Key Alias.
               </CustomTreeItem>
             </CustomTreeItem>
