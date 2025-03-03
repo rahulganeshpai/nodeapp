@@ -19,6 +19,7 @@ import Box from "@mui/material/Box";
 import { useMediaQuery, useTheme } from "@mui/material";
 import Divider from "@mui/material/Divider";
 import examples from "../../utils/examples";
+import { Link } from "@mui/material";
 
 const CustomTreeItem = styled(TreeItem)(({ theme }) => ({
   [`& .${treeItemClasses.content}`]: {
@@ -111,18 +112,6 @@ const BorderedTreeView = ({ crdData }) => {
       >
         <Box>
           <Typography variant="body1">
-            <b>Type:</b>
-          </Typography>
-          <Typography variant="body2">CRD</Typography>
-        </Box>
-        <Box>
-          <Typography variant="body1">
-            <b>Kind:</b>
-          </Typography>
-          <Typography variant="body2">CKey</Typography>
-        </Box>
-        <Box>
-          <Typography variant="body1">
             <b>Group:</b>
           </Typography>
           <Typography variant="body2">kms.aws.signavio.cloud</Typography>
@@ -133,14 +122,38 @@ const BorderedTreeView = ({ crdData }) => {
           </Typography>
           <Typography variant="body2">v1alpha1</Typography>
         </Box>
+        <Box>
+          <Typography variant="body1">
+            <b>Kind:</b>
+          </Typography>
+          <Typography variant="body2">CKey</Typography>
+        </Box>
+        <Box>
+          <Typography variant="body1">
+            <b>Guide:</b>
+          </Typography>
+          <Link
+            href="https://github.com/signavio/crossplane-compositions/blob/main/compositions/kms/README.md"
+            target="_blank" // Opens the link in a new tab/window
+            rel="noopener noreferrer" // Provides security and performance benefits
+            sx={{
+              color: "#2e7d32", // Use theme's primary color
+              textDecoration: "none", // Removes default underline (add as needed)
+              fontWeight: "bold", // Optional styling for emphasis
+              "&:hover": {
+                textDecoration: "underline", // Add underline on hover
+              },
+            }}
+          >
+            README
+          </Link>
+          {/* <Typography variant="body2">kms.aws.signavio.cloud</Typography> */}
+        </Box>
       </Stack>
       <br />
       <Divider />
       <br />
       <Stack spacing={2} direction="row">
-        <Button variant="text" sx={{ color: "#2e7d32" }}>
-          README
-        </Button>
         <Button
           variant="text"
           sx={{ color: "#2e7d32" }}
@@ -244,6 +257,7 @@ const BorderedTreeView = ({ crdData }) => {
       )}
       {isTreeVisible && (
         <div>
+          <br />
           <SimpleTreeView
             aria-label="customized"
             defaultExpandedItems={["1", "3"]}
