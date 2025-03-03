@@ -19,6 +19,9 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
+import { useMediaQuery, useTheme } from '@mui/material';
+import Divider from '@mui/material/Divider';
+
 
 const CustomTreeItem = styled(TreeItem)(({ theme }) => ({
   [`& .${treeItemClasses.content}`]: {
@@ -82,9 +85,52 @@ const BorderedTreeView = ({ crdData }) => {
     ),
     createData("upbound/provider-aws-kms", "Provider", "v1"),
   ];
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <div>
+      <br />
+      <Stack
+      direction={isSmallScreen ? 'column' : 'row'}
+      spacing={9} // Adjust spacing as needed for visual comfort
+      sx={{
+        padding: 2, // Padding around the entire stack
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
+        flexWrap: 'wrap', // Ensures items wrap in smaller viewports
+        '& > *': {
+          margin: '2px', // Customize the spacing here
+        },
+      }}
+    >
+      <Box>
+        <Typography variant="body1">
+          <b>Type:</b>
+        </Typography>
+        <Typography variant="body2">CRD</Typography>
+      </Box>
+      <Box>
+        <Typography variant="body1">
+          <b>Kind:</b>
+        </Typography>
+        <Typography variant="body2">CKey</Typography>
+      </Box>
+      <Box>
+        <Typography variant="body1">
+          <b>Group:</b>
+        </Typography>
+        <Typography variant="body2">kms.aws.signavio.cloud</Typography>
+      </Box>
+      <Box>
+        <Typography variant="body1">
+          <b>Version:</b>
+        </Typography>
+        <Typography variant="body2">v1alpha1</Typography>
+      </Box>
+    </Stack>
+    <br />
+    <Divider />
       <br />
       <Stack spacing={2} direction="row">
         <Button variant="text">README</Button>
@@ -199,7 +245,8 @@ const BorderedTreeView = ({ crdData }) => {
         >
           <CustomTreeItem itemId="1" label="spec">
             <CustomTreeItem itemId="2" label="providerConfigRef">
-              <CustomTreeItem itemId="21" label="aws" />
+            Specifies how the provider creates, observes, updates, and deletes resources
+              <CustomTreeItem itemId="21" label="aws">Provider name for AWS</CustomTreeItem>
             </CustomTreeItem>
             <CustomTreeItem
               itemId="3"
@@ -226,12 +273,13 @@ const BorderedTreeView = ({ crdData }) => {
                 </Box>
               }
             >
-              <CustomTreeItem itemId="31" label="tag" />
+              ResourceConfig defines the general properties of this AWS resource.
+              <CustomTreeItem itemId="31" label="tag">Key-value map of resource tags.</CustomTreeItem>
             </CustomTreeItem>
           </CustomTreeItem>
-          <CustomTreeItem itemId="11" label="status">
-            <CustomTreeItem itemId="12" label="KeyArn" />
-            <CustomTreeItem itemId="13" label="KeyAlias" />
+          <CustomTreeItem itemId="11" label="status"> A Status represents the observed state.
+            <CustomTreeItem itemId="12" label="KeyArn">KMS Key ARN.</CustomTreeItem>
+            <CustomTreeItem itemId="13" label="KeyAlias">KMS Key Alias.</CustomTreeItem>
           </CustomTreeItem>
         </SimpleTreeView>
       )}
