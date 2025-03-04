@@ -14,7 +14,6 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import { useMediaQuery, useTheme } from "@mui/material";
 import Divider from "@mui/material/Divider";
@@ -22,18 +21,19 @@ import examples from "../../utils/examples";
 import { Link } from "@mui/material";
 
 const CustomTreeItem = styled(TreeItem)(({ theme }) => ({
+  marginBottom: theme.spacing(1),
   [`& .${treeItemClasses.content}`]: {
     padding: theme.spacing(0.5, 1),
     margin: theme.spacing(0.2, 0),
     display: "flex",
     alignItems: "center",
     width: "auto",
-    backgroundColor: "transparent", // Ensure no background
+    backgroundColor: "transparent",
     "&:hover": {
-      backgroundColor: "transparent", // No hover color
+      backgroundColor: "transparent",
     },
     "&.Mui-selected, &.Mui-selected:focus, &.Mui-selected:hover": {
-      backgroundColor: "transparent", // No background when selected or focused
+      backgroundColor: "transparent",
     },
   },
   [`& .${treeItemClasses.iconContainer}`]: {
@@ -134,20 +134,19 @@ const BorderedTreeView = ({ crdData }) => {
           </Typography>
           <Link
             href="https://github.com/signavio/crossplane-compositions/blob/main/compositions/kms/README.md"
-            target="_blank" // Opens the link in a new tab/window
-            rel="noopener noreferrer" // Provides security and performance benefits
+            target="_blank"
+            rel="noopener noreferrer"
             sx={{
-              color: "#2e7d32", // Use theme's primary color
-              textDecoration: "none", // Removes default underline (add as needed)
-              fontWeight: "bold", // Optional styling for emphasis
+              color: "#2e7d32",
+              textDecoration: "none",
+              fontWeight: "bold",
               "&:hover": {
-                textDecoration: "underline", // Add underline on hover
+                textDecoration: "underline",
               },
             }}
           >
             README
           </Link>
-          {/* <Typography variant="body2">kms.aws.signavio.cloud</Typography> */}
         </Box>
       </Stack>
       <br />
@@ -299,6 +298,9 @@ const BorderedTreeView = ({ crdData }) => {
                 </Box>
               }
             >
+              <Box sx={{ marginY: 2 }}>
+                Defines the desired state of the Resource
+              </Box>
               <CustomTreeItem
                 itemId="43433"
                 label={
@@ -308,6 +310,7 @@ const BorderedTreeView = ({ crdData }) => {
                       justifyContent: "space-between",
                       alignItems: "center",
                       width: "100%",
+                      marginY: 1,
                     }}
                   >
                     <Typography>providerConfigRef</Typography>
@@ -326,8 +329,10 @@ const BorderedTreeView = ({ crdData }) => {
                   </Box>
                 }
               >
-                Specifies how the provider creates, observes, updates, and
-                deletes resources
+                <Box sx={{ marginY: 2 }}>
+                  Specifies how the provider creates, observes, updates, and
+                  deletes resources
+                </Box>
                 <CustomTreeItem
                   itemId="43436"
                   label={
@@ -337,6 +342,7 @@ const BorderedTreeView = ({ crdData }) => {
                         justifyContent: "space-between",
                         alignItems: "center",
                         width: "100%",
+                        marginY: 1,
                       }}
                     >
                       <Typography>aws</Typography>
@@ -360,7 +366,7 @@ const BorderedTreeView = ({ crdData }) => {
                     </Box>
                   }
                 >
-                  Provider name for AWS
+                  <Box sx={{ marginY: 2 }}>Provider name for AWS</Box>
                 </CustomTreeItem>
               </CustomTreeItem>
               <CustomTreeItem
@@ -372,6 +378,7 @@ const BorderedTreeView = ({ crdData }) => {
                       justifyContent: "space-between",
                       alignItems: "center",
                       width: "100%",
+                      marginY: 1,
                     }}
                   >
                     <Typography>resourceConfig</Typography>
@@ -405,8 +412,10 @@ const BorderedTreeView = ({ crdData }) => {
                   </Box>
                 }
               >
-                ResourceConfig defines the general properties of this AWS
-                resource.
+                <Box sx={{ marginY: 2 }}>
+                  ResourceConfig defines the general properties of this AWS
+                  resource.
+                </Box>
                 <CustomTreeItem
                   itemId="29292"
                   label={
@@ -416,6 +425,7 @@ const BorderedTreeView = ({ crdData }) => {
                         justifyContent: "space-between",
                         alignItems: "center",
                         width: "100%",
+                        marginY: 1,
                       }}
                     >
                       <Typography>tag</Typography>
@@ -434,7 +444,7 @@ const BorderedTreeView = ({ crdData }) => {
                     </Box>
                   }
                 >
-                  Key-value map of resource tags.
+                  <Box sx={{ marginY: 2 }}>Key-value map of resource tags.</Box>
                 </CustomTreeItem>
               </CustomTreeItem>
             </CustomTreeItem>
@@ -468,7 +478,9 @@ const BorderedTreeView = ({ crdData }) => {
                 </Box>
               }
             >
-              A Status represents the observed state.
+              <Box sx={{ marginY: 2 }}>
+                A Status represents the observed state.
+              </Box>
               <CustomTreeItem
                 itemId="12112"
                 label={
@@ -478,6 +490,7 @@ const BorderedTreeView = ({ crdData }) => {
                       justifyContent: "space-between",
                       alignItems: "center",
                       width: "100%",
+                      marginY: 1,
                     }}
                   >
                     <Typography>KeyArn</Typography>
@@ -501,7 +514,7 @@ const BorderedTreeView = ({ crdData }) => {
                   </Box>
                 }
               >
-                KMS Key ARN.
+                <Box sx={{ marginY: 2 }}>KMS Key ARN.</Box>
               </CustomTreeItem>
               <CustomTreeItem
                 itemId="4343"
@@ -512,6 +525,7 @@ const BorderedTreeView = ({ crdData }) => {
                       justifyContent: "space-between",
                       alignItems: "center",
                       width: "100%",
+                      marginY: 1,
                     }}
                   >
                     <Typography>KeyAlias</Typography>
@@ -535,7 +549,7 @@ const BorderedTreeView = ({ crdData }) => {
                   </Box>
                 }
               >
-                KMS Key Alias.
+                <Box sx={{ marginY: 2 }}>KMS Key Alias.</Box>
               </CustomTreeItem>
             </CustomTreeItem>
           </SimpleTreeView>
