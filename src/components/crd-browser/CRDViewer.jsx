@@ -62,24 +62,12 @@ const EndIcon = (props) => {
 
 const BorderedTreeView = ({ crdData }) => {
   console.log(crdData);
-  const [isTreeVisible, setIsTreeVisible] = useState(true);
-  const [isCardVisible, setIsCardVisible] = useState(false);
-  const [isTable, setisTable] = useState(false);
+  const [isSchema, setIsSchema] = useState(true);
+  const [isExample, setIsExample] = useState(false);
+  const [isDependencies, setIsDependencies] = useState(false);
 
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-
-  const toggleTreeVisibility = () => {
-    setIsTreeVisible((prev) => !prev);
-  };
-
-  const toggleCardVisibility = () => {
-    setIsCardVisible((prev) => !prev);
-  };
-
-  const toggleTableVisibility = () => {
-    setisTable((prev) => !prev);
-  };
 
   const createData = (name, calories, fat, carbs, protein) => {
     return { name, calories, fat, carbs, protein };
@@ -94,6 +82,28 @@ const BorderedTreeView = ({ crdData }) => {
     ),
     createData("upbound/provider-aws-kms", "Provider", "v1"),
   ];
+
+  const toggleVisbility = (type) => {
+    switch (type) {
+      case "SCHEMA":
+        setIsSchema(true);
+        setIsExample(false);
+        setIsDependencies(false);
+        break;
+      case "EXAMPLE":
+        setIsSchema(false);
+        setIsExample(true);
+        setIsDependencies(false);
+        break;
+      case "DEPENDENCIES":
+        setIsSchema(false);
+        setIsExample(false);
+        setIsDependencies(true);
+        break;
+      default:
+        break;
+    }
+  };
 
   return (
     <div style={{ overflowX: "auto" }}>
@@ -155,27 +165,27 @@ const BorderedTreeView = ({ crdData }) => {
         <Button
           variant="text"
           sx={{ color: "#2e7d32" }}
-          onClick={toggleTreeVisibility}
+          onClick={() => toggleVisbility("SCHEMA")}
         >
-          Schema
+          SCHEMA
         </Button>
         <Button
           variant="text"
           sx={{ color: "#2e7d32" }}
-          onClick={toggleTableVisibility}
+          onClick={() => toggleVisbility("DEPENDENCIES")}
         >
           DEPENDENCIES
         </Button>
         <Button
           variant="text"
           sx={{ color: "#2e7d32" }}
-          onClick={toggleCardVisibility}
+          onClick={() => toggleVisbility("EXAMPLE")}
         >
-          Example
+          EXAMPLE
         </Button>
       </Stack>
       <br />
-      {isCardVisible && (
+      {isExample && (
         <Fragment>
           <br />
           <Typography
@@ -188,7 +198,7 @@ const BorderedTreeView = ({ crdData }) => {
           <br />
         </Fragment>
       )}
-      {isTable && (
+      {isDependencies && (
         <Fragment>
           <br />
           <TableContainer>
@@ -253,7 +263,7 @@ const BorderedTreeView = ({ crdData }) => {
           <br />
         </Fragment>
       )}
-      {isTreeVisible && (
+      {isSchema && (
         <Fragment>
           <br />
           <SimpleTreeView
