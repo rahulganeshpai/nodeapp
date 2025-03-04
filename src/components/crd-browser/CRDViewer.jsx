@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import IndeterminateCheckBoxRoundedIcon from "@mui/icons-material/IndeterminateCheckBoxRounded";
 import DisabledByDefaultRoundedIcon from "@mui/icons-material/DisabledByDefaultRounded";
 import AddBoxRoundedIcon from "@mui/icons-material/ControlPoint";
@@ -48,19 +48,20 @@ const CustomTreeItem = styled(TreeItem)(({ theme }) => ({
   },
 }));
 
-function ExpandIcon(props) {
+const ExpandIcon = (props) => {
   return <AddBoxRoundedIcon {...props} sx={{ opacity: 0.8 }} />;
-}
+};
 
-function CollapseIcon(props) {
+const CollapseIcon = (props) => {
   return <IndeterminateCheckBoxRoundedIcon {...props} sx={{ opacity: 0.8 }} />;
-}
+};
 
-function EndIcon(props) {
+const EndIcon = (props) => {
   return <DisabledByDefaultRoundedIcon {...props} sx={{ opacity: 0.3 }} />;
-}
+};
 
 const BorderedTreeView = ({ crdData }) => {
+  console.log(crdData);
   const [isTreeVisible, setIsTreeVisible] = useState(true);
   const [isCardVisible, setIsCardVisible] = useState(false);
   const [isTable, setisTable] = useState(false);
@@ -80,9 +81,9 @@ const BorderedTreeView = ({ crdData }) => {
     setisTable((prev) => !prev);
   };
 
-  function createData(name, calories, fat, carbs, protein) {
+  const createData = (name, calories, fat, carbs, protein) => {
     return { name, calories, fat, carbs, protein };
-  }
+  };
 
   const rows = [
     createData("xkey.kms.aws.signavio.cloud", "Composition", "v1.1.1"),
@@ -96,7 +97,6 @@ const BorderedTreeView = ({ crdData }) => {
 
   return (
     <div style={{ overflowX: "auto" }}>
-      <br />
       <Stack
         direction={isSmallScreen ? "column" : "row"}
         spacing={9}
@@ -111,26 +111,26 @@ const BorderedTreeView = ({ crdData }) => {
         }}
       >
         <Box>
-          <Typography variant="body1">
+          <Typography variant="body1" sx={{ marginY: 1 }}>
             <b>Group:</b>
           </Typography>
           <Typography variant="body2">kms.aws.signavio.cloud</Typography>
         </Box>
         <Box>
-          <Typography variant="body1">
+          <Typography variant="body1" sx={{ marginY: 1 }}>
             <b>Version:</b>
           </Typography>
           <Typography variant="body2">v1alpha1</Typography>
         </Box>
         <Box>
-          <Typography variant="body1">
+          <Typography variant="body1" sx={{ marginY: 1 }}>
             <b>Kind:</b>
           </Typography>
           <Typography variant="body2">CKey</Typography>
         </Box>
         <Box>
-          <Typography variant="body1">
-            <b>Guide:</b>
+          <Typography variant="body1" sx={{ marginY: 1 }}>
+            <b>Documentation:</b>
           </Typography>
           <Link
             href="https://github.com/signavio/crossplane-compositions/blob/main/compositions/kms/README.md"
@@ -139,13 +139,12 @@ const BorderedTreeView = ({ crdData }) => {
             sx={{
               color: "#2e7d32",
               textDecoration: "none",
-              fontWeight: "bold",
               "&:hover": {
                 textDecoration: "underline",
               },
             }}
           >
-            README
+            User Guide
           </Link>
         </Box>
       </Stack>
@@ -177,7 +176,7 @@ const BorderedTreeView = ({ crdData }) => {
       </Stack>
       <br />
       {isCardVisible && (
-        <div>
+        <Fragment>
           <br />
           <Typography
             gutterBottom
@@ -187,10 +186,10 @@ const BorderedTreeView = ({ crdData }) => {
           </Typography>
           <br />
           <br />
-        </div>
+        </Fragment>
       )}
       {isTable && (
-        <div>
+        <Fragment>
           <br />
           <TableContainer>
             <Table
@@ -252,10 +251,10 @@ const BorderedTreeView = ({ crdData }) => {
           </TableContainer>
           <br />
           <br />
-        </div>
+        </Fragment>
       )}
       {isTreeVisible && (
-        <div>
+        <Fragment>
           <br />
           <SimpleTreeView
             aria-label="customized"
@@ -349,15 +348,12 @@ const BorderedTreeView = ({ crdData }) => {
                       <Box sx={{ display: "flex", gap: 1 }}>
                         <Button
                           variant="contained"
+                          color="success"
                           size="small"
                           sx={{
-                            backgroundColor: "#2e7d32", // Light yellow background
                             color: "white", // Text color, adjust for contrast
                             padding: "1px 8px",
                             fontSize: "0.65rem",
-                            "&:hover": {
-                              backgroundColor: "#fffac0", // Slightly darker yellow on hover
-                            },
                           }}
                         >
                           String
@@ -387,12 +383,12 @@ const BorderedTreeView = ({ crdData }) => {
                         variant="contained"
                         size="small"
                         sx={{
-                          backgroundColor: "#A9A9A9", // Light yellow background
+                          backgroundColor: "#A9A9A9",
                           color: "white", // Text color, adjust for contrast
                           padding: "1px 8px",
                           fontSize: "0.65rem",
                           "&:hover": {
-                            backgroundColor: "#fffac0", // Slightly darker yellow on hover
+                            backgroundColor: "#A9A9A9", // Slightly darker yellow on hover
                           },
                         }}
                       >
@@ -498,14 +494,11 @@ const BorderedTreeView = ({ crdData }) => {
                       <Button
                         variant="contained"
                         size="small"
+                        color="success"
                         sx={{
-                          backgroundColor: "#2e7d32", // Light yellow background
                           color: "white", // Text color, adjust for contrast
                           padding: "1px 8px",
                           fontSize: "0.65rem",
-                          "&:hover": {
-                            backgroundColor: "#fffac0", // Slightly darker yellow on hover
-                          },
                         }}
                       >
                         String
@@ -533,14 +526,11 @@ const BorderedTreeView = ({ crdData }) => {
                       <Button
                         variant="contained"
                         size="small"
+                        color="success"
                         sx={{
-                          backgroundColor: "#2e7d32", // Light yellow background
                           color: "white", // Text color, adjust for contrast
                           padding: "1px 8px",
                           fontSize: "0.65rem",
-                          "&:hover": {
-                            backgroundColor: "#fffac0", // Slightly darker yellow on hover
-                          },
                         }}
                       >
                         String
@@ -553,7 +543,7 @@ const BorderedTreeView = ({ crdData }) => {
               </CustomTreeItem>
             </CustomTreeItem>
           </SimpleTreeView>
-        </div>
+        </Fragment>
       )}
       <br />
       <br />
