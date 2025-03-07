@@ -18,6 +18,7 @@ spec:
         openAPIV3Schema:
           properties:
             spec:
+              description: Defines the desired state of the Resource
               properties:
                 providerConfigRef:
                   description: Specifies how the provider creates, observes, updates, and deletes resources.
